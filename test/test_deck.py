@@ -25,6 +25,7 @@ def test_rank_of_card_at():
     assert deck.rank_of_card_at(0) == 12
     assert deck.rank_of_card_at(2) == 14
 
+
 def test_returns_high_ranking_cards():
     card1 = Card("diamond", "Queen", 12)
     card2 = Card("spade", "3", 3)
@@ -37,6 +38,7 @@ def test_returns_high_ranking_cards():
     assert deck.high_ranking_cards()[1] == card3
     assert len(deck.high_ranking_cards()) == 2
 
+
 def test_knows_percent_of_high_ranked_cards():
     card1 = Card("diamond", "Queen", 12)
     card2 = Card("spade", "3", 3)
@@ -47,3 +49,16 @@ def test_knows_percent_of_high_ranked_cards():
     deck = Deck(cards)
 
     assert deck.percent_high_ranking() == 50.0
+
+
+def test_can_remove_card():
+    card1 = Card("diamond", "Queen", 12)
+    card2 = Card("spade", "3", 3)
+    card3 = Card("Heart", "Ace", 14)
+    cards = [card1, card2, card3]
+
+    deck = Deck(cards)
+    deck.remove_card()
+
+    assert len(deck.cards) == 2
+    assert deck.cards == [card2, card3]
