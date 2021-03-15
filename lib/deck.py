@@ -12,3 +12,7 @@ class Deck:
                 high_ranked_list.append(card)
         return high_ranked_list
 
+    def percent_high_ranking(self):
+        return len(self.high_ranking_cards())\
+               / len(self.cards)\
+               * 100
