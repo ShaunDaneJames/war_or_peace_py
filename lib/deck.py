@@ -16,3 +16,6 @@ class Deck:
         return len(self.high_ranking_cards())\
                / len(self.cards)\
                * 100
+
+    def remove_card(self):
+        self.cards.pop(0)
