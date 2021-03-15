@@ -62,3 +62,16 @@ def test_can_remove_card():
 
     assert len(deck.cards) == 2
     assert deck.cards == [card2, card3]
+
+
+def test_can_add_card():
+    card1 = Card("diamond", "Queen", 12)
+    cards = [card1]
+    deck = Deck(cards)
+
+    assert len(deck.cards) == 1
+
+    card2 = Card("spade", "3", 3)
+    deck.add_card(card2)
+
+    assert deck.cards[1] == card2
