@@ -70,8 +70,10 @@ def test_can_add_card():
     deck = Deck(cards)
 
     assert len(deck.cards) == 1
+    assert deck.percent_high_ranking() == 100.0
 
     card2 = Card("spade", "3", 3)
     deck.add_card(card2)
 
     assert deck.cards[1] == card2
+    assert deck.percent_high_ranking() == 50.0
