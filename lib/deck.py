@@ -19,3 +19,6 @@ class Deck:
 
     def remove_card(self):
         self.cards.pop(0)
+
+    def add_card(self, card):
+        self.cards.append(card)
