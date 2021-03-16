@@ -8,7 +8,7 @@ class Turn:
         if self.player1.deck.rank_of_card_at(0) != self.player2.deck.rank_of_card_at(0):
             return "basic"
         elif self.player1.deck.rank_of_card_at(0) == self.player2.deck.rank_of_card_at(0)\
-                and self.player1.deck.rank_of_card_at(1) == self.player2.deck.rank_of_card_at(1):
+                and self.player1.deck.rank_of_card_at(2) == self.player2.deck.rank_of_card_at(2):
             return "MAD"
         else:
             return "war"
@@ -18,6 +18,8 @@ class Turn:
             return self.find_basic_winner()
         if self.type() == "war":
             return self.find_war_winner()
+        else:
+            return "No Winner"
 
     def find_basic_winner(self):
         if self.player1.deck.rank_of_card_at(0) > self.player2.deck.rank_of_card_at(0):
@@ -25,9 +27,8 @@ class Turn:
         else:
             return self.player2
 
-
     def find_war_winner(self):
-        if self.player1.deck.rank_of_card_at(1) > self.player2.deck.rank_of_card_at(1):
+        if self.player1.deck.rank_of_card_at(2) > self.player2.deck.rank_of_card_at(2):
             return self.player1
         else:
             return self.player2
