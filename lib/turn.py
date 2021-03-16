@@ -38,6 +38,8 @@ class Turn:
             return self.pile_basic()
         if self.type() == "war":
             return self.pile_war()
+        else:
+            return self.pile_mad()
 
     def pile_basic(self):
         self.spoils.append(self.player1.deck.remove_card())
@@ -50,3 +52,9 @@ class Turn:
         for c in range(3):
             self.spoils.append(self.player2.deck.remove_card())
         return self.spoils
+
+    def pile_mad(self):
+        for c in range(3):
+            self.player1.deck.remove_card()
+        for c in range(3):
+            self.player2.deck.remove_card()
