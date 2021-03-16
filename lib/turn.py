@@ -12,3 +12,14 @@ class Turn:
             return "MAD"
         else:
             return "war"
+
+    def winner(self):
+        if self.type() == "basic":
+            return self.find_basic_winner()
+
+    def find_basic_winner(self):
+        if self.player1.deck.rank_of_card_at(0) > self.player2.deck.rank_of_card_at(0):
+            return self.player1
+        else:
+            return self.player2
+
