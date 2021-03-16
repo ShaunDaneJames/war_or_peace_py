@@ -1,8 +1,8 @@
 class Turn:
-    def __init__(self, player1, player2, spoils=[]):
+    def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
-        self.spoils = spoils
+        self.spoils = []
 
     def type(self):
         if self.player1.deck.rank_of_card_at(0) != self.player2.deck.rank_of_card_at(0):
@@ -32,3 +32,12 @@ class Turn:
             return self.player1
         else:
             return self.player2
+
+    def pile_cards(self):
+        if self.type() == "basic":
+            return self.pile_basic()
+
+    def pile_basic(self):
+        self.spoils.append(self.player1.deck.remove_card())
+        self.spoils.append(self.player2.deck.remove_card())
+        return self.spoils
