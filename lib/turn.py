@@ -7,3 +7,8 @@ class Turn:
     def type(self):
         if self.player1.deck.rank_of_card_at(0) != self.player2.deck.rank_of_card_at(0):
             return "basic"
+        elif self.player1.deck.rank_of_card_at(0) == self.player2.deck.rank_of_card_at(0)\
+                and self.player1.deck.rank_of_card_at(1) == self.player2.deck.rank_of_card_at(1):
+            return "MAD"
+        else:
+            return "war"
