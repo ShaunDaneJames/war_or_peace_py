@@ -127,3 +127,22 @@ def test_knows_MAD_turn_winner():
 
     assert turn.type() == "MAD"
     assert turn.winner() == "No Winner"
+
+def test_can_pile_basic_turn():
+    card1 = Card("diamond", "Queen", 12)
+    card2 = Card("spade", "3", 3)
+    card3 = Card("Heart", "Ace", 14)
+    card4 = Card("spade", "7", 7)
+    cards1 = [card1, card2]
+    cards2 = [card3, card4]
+
+    deck1 = Deck(cards1)
+    deck2 = Deck(cards2)
+    player1 = Player('Calvin', deck1)
+    player2 = Player('Hobbes', deck2)
+    turn = Turn(player1, player2)
+
+    assert turn.type() == "basic"
+    turn.pile_cards()
+    assert turn.spoils == [card1, card3]
+
