@@ -146,3 +146,22 @@ def test_can_pile_basic_turn():
     turn.pile_cards()
     assert turn.spoils == [card1, card3]
 
+def test_can_pile_war_turn():
+    card1 = Card("diamond", "Queen", 12)
+    card2 = Card("spade", "3", 3)
+    card3 = Card("Heart", "Queen", 12)
+    card4 = Card("spade", "7", 7)
+    card5 = Card("diamond", "King", 13)
+    card6 = Card("diamond", "Ace", 14)
+    cards1 = [card1, card2, card5]
+    cards2 = [card3, card4, card6]
+
+    deck1 = Deck(cards1)
+    deck2 = Deck(cards2)
+    player1 = Player('Calvin', deck1)
+    player2 = Player('Hobbes', deck2)
+    turn = Turn(player1, player2)
+
+    assert turn.type() == "war"
+    turn.pile_cards()
+    assert turn.spoils == [card1, card2, card5, card3, card4, card6]
