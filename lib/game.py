@@ -18,4 +18,8 @@ class Game:
         self.player2.deck = self.deck.cards[26:52]
 
     def turn_logic(self):
-        print('do the thing')
+        while not self.player1.has_lost() or self.player2.has_lost():
+            self.turn.pile_cards()
+            print(self.turn.winner() + ' won ' + self.turn.spoils.count + ' cards ')
+            self.turn.award_spoils(self.turn.winner)
+

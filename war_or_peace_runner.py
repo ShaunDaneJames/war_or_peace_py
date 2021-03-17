@@ -11,11 +11,12 @@ turn = Turn(calvin, hobbes)
 suits = ['Heart', 'Diamond', 'Club', 'Spade']
 values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
 rank = 2
-deck = Deck(cards=[])
+cards = []
+deck = Deck(cards)
 
 for s in suits:
     for v in values:
-        deck.add_card(Card(s, v, rank))
+        cards.append(Card(s, v, rank))
         rank += 1
     rank = 2
 
