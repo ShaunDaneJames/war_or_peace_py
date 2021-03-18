@@ -4,15 +4,11 @@ from lib.deck import *
 from lib.card import *
 from lib.game import *
 
-calvin = Player('Calvin', deck=[])
-hobbes = Player('Hobbes', deck=[])
 
-turn = Turn(calvin, hobbes)
 suits = ['Heart', 'Diamond', 'Club', 'Spade']
 values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
 rank = 2
 cards = []
-deck = Deck(cards)
 
 for s in suits:
     for v in values:
@@ -20,6 +16,7 @@ for s in suits:
         rank += 1
     rank = 2
 
+deck = Deck(cards)
 
 decision = input(
     'Welcome to War! (or Peace) This game will be played with 52 cards.\n'
@@ -28,6 +25,10 @@ decision = input(
     '------------------------------------------------------------------\n')
 
 if decision.upper() == "GO":
+    calvin = Player('Calvin', deck)
+    hobbes = Player('Hobbes', deck)
+
+    turn = Turn(calvin, hobbes)
     game = Game(calvin, hobbes, deck, turn)
     game.start()
     print("yay")

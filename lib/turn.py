@@ -16,22 +16,22 @@ class Turn:
     def winner(self):
         if self.type() == "basic":
             return self.find_basic_winner()
-        if self.type() == "war":
+        elif self.type() == "war":
             return self.find_war_winner()
         else:
             return "No Winner"
 
     def find_basic_winner(self):
         if self.player1.deck.rank_of_card_at(0) > self.player2.deck.rank_of_card_at(0):
-            return self.player1
+            return self.player1.name
         else:
-            return self.player2
+            return self.player2.name
 
     def find_war_winner(self):
         if self.player1.deck.rank_of_card_at(2) > self.player2.deck.rank_of_card_at(2):
-            return self.player1
+            return self.player1.name
         else:
-            return self.player2
+            return self.player2.name
 
     def pile_cards(self):
         if self.type() == "basic":
@@ -61,6 +61,5 @@ class Turn:
 
     def award_spoils(self, winner):
         for c in self.spoils:
-            print(c.value)
             winner.deck.add_card(c)
         self.spoils = []
