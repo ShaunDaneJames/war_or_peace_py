@@ -17,6 +17,9 @@ for s in suits:
     rank = 2
 
 deck = Deck(cards)
+random.shuffle(deck.cards)
+player1_deck = Deck(cards[0:25])
+player2_deck = Deck(cards[26:52])
 
 decision = input(
     'Welcome to War! (or Peace) This game will be played with 52 cards.\n'
@@ -25,11 +28,11 @@ decision = input(
     '------------------------------------------------------------------\n')
 
 if decision.upper() == "GO":
-    calvin = Player('Calvin', deck)
-    hobbes = Player('Hobbes', deck)
+    calvin = Player('Calvin', player1_deck)
+    hobbes = Player('Hobbes', player2_deck)
 
     turn = Turn(calvin, hobbes)
-    game = Game(calvin, hobbes, deck, turn)
+    game = Game(calvin, hobbes, turn)
     game.start()
     print("yay")
 else:
