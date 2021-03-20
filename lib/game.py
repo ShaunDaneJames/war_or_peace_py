@@ -14,9 +14,13 @@ class Game:
 
     def deal_cards(self):
         random.shuffle(self.deck.cards)
+        import pdb;
+        pdb.set_trace()
+        self.player1.deck.cards = []
+        self.player2.deck.cards = []
+        # self.player1.deck.cards = self.deck.cards[0:25]
+        # self.player2.deck.cards = self.deck.cards[26:52]
 
-        self.player1.deck.cards.append(self.deck.cards[0:25])
-        self.player2.deck.cards.append(self.deck.cards[26:52])
 
     def turn_logic(self):
         while not self.player1.has_lost() or self.player2.has_lost():
