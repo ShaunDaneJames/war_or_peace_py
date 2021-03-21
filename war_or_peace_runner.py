@@ -33,7 +33,7 @@ if decision.upper() == "GO":
 
     turn = Turn(calvin, hobbes)
     game = Game(calvin, hobbes, turn)
-    game.start()
-    print("yay fin!")
+    winner = game.start()
+    print("yay " + winner + " Won the game!")
 else:
     print('Thanks for playing!')
