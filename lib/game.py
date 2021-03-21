@@ -28,3 +28,5 @@ class Game:
             else:
                 print(self.turn.type() + ": " + str(self.turn.winner().name) + ' won ' + str(len(self.turn.spoils)) + ' cards!')
                 self.turn.award_spoils(self.turn.winner())
+            if self.player1.has_lost() or self.player2.has_lost():
+                break
