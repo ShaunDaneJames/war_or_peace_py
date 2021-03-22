@@ -5,18 +5,18 @@ class Turn:
         self.spoils = []
 
     def type(self):
-        if self.player1.deck.rank_of_card_at(0) != self.player2.deck.rank_of_card_at(0):
-            return "basic"
-        elif self.player1.deck.rank_of_card_at(0) == self.player2.deck.rank_of_card_at(0)\
+        if self.player1.deck.rank_of_card_at(0) == self.player2.deck.rank_of_card_at(0)\
                 and self.player1.deck.rank_of_card_at(2) == self.player2.deck.rank_of_card_at(2):
             return "MAD"
+        elif self.player1.deck.rank_of_card_at(0) != self.player2.deck.rank_of_card_at(0):
+            return "basic"
         else:
             return "war"
 
     def winner(self):
         if self.type() == "basic":
             return self.find_basic_winner()
-        if self.type() == "war":
+        elif self.type() == "war":
             return self.find_war_winner()
         else:
             return "No Winner"
@@ -36,7 +36,7 @@ class Turn:
     def pile_cards(self):
         if self.type() == "basic":
             return self.pile_basic()
-        if self.type() == "war":
+        elif self.type() == "war":
             return self.pile_war()
         else:
             return self.pile_mad()
@@ -44,14 +44,14 @@ class Turn:
     def pile_basic(self):
         self.spoils.append(self.player1.deck.remove_card())
         self.spoils.append(self.player2.deck.remove_card())
-        return self.spoils
+        # return self.spoils
 
     def pile_war(self):
         for c in range(3):
             self.spoils.append(self.player1.deck.remove_card())
         for c in range(3):
             self.spoils.append(self.player2.deck.remove_card())
-        return self.spoils
+        # return self.spoils
 
     def pile_mad(self):
         for c in range(3):
@@ -61,6 +61,5 @@ class Turn:
 
     def award_spoils(self, winner):
         for c in self.spoils:
-            print(c.value)
             winner.deck.add_card(c)
         self.spoils = []

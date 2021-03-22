@@ -3,7 +3,10 @@ class Deck:
         self.cards = cards
 
     def rank_of_card_at(self, index):
-        return self.cards[index].rank
+        if self.cards == []:
+            return 0
+        else:
+            return self.cards[index].rank
 
     def high_ranking_cards(self):
         high_ranked_list = []

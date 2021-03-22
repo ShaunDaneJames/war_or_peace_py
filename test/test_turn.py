@@ -206,7 +206,7 @@ def test_distributes_cards_to_winner_for_basic_turn():
     assert turn.winner() == player2
 
     turn.pile_cards()
-    turn.award_spoils(player2)
+    turn.award_spoils(turn.winner())
 
     assert player2.deck.cards == [card4, card1, card3]
     assert player1.deck.cards == [card2]
