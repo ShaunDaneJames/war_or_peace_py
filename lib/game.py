@@ -23,11 +23,14 @@ class Game:
     def turn_logic(self):
         while not self.player1.has_lost() or self.player2.has_lost():
             self.turn.pile_cards()
-            if self.turn.winner() == "No Winner":
+            winner = self.turn.winner()
+            if winner == "No Winner":
                 print("Mutually assured destruction 6 cards removed from play")
             else:
-                print(self.turn.type() + ": " + str(self.turn.winner().name) + ' won ' + str(len(self.turn.spoils)) + ' cards!')
-                self.turn.award_spoils(self.turn.winner())
+                print(self.turn.type() + ": " + str(winner.name) + ' won ' + str(len(self.turn.spoils)) + ' cards!')
+                # import pdb;
+                # pdb.set_trace()
+                self.turn.award_spoils(winner)
 
 
     def grand_winner(self):

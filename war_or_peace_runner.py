@@ -18,7 +18,7 @@ for s in suits:
 
 deck = Deck(cards)
 random.shuffle(deck.cards)
-player1_deck = Deck(cards[0:25])
+player1_deck = Deck(cards[0:26])
 player2_deck = Deck(cards[26:52])
 
 decision = input(
