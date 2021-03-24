@@ -21,14 +21,18 @@ class Game:
 
 
     def turn_logic(self):
-        while not self.player1.has_lost() or self.player2.has_lost():
-            self.turn.pile_cards()
+        turn_count = 0
+        while not (self.player1.has_lost() or self.player2.has_lost() or turn_count == 1000000):
             winner = self.turn.winner()
             if winner == "No Winner":
                 print("Mutually assured destruction 6 cards removed from play")
+                self.turn.pile_cards()
             else:
-                print(self.turn.type() + ": " + str(winner.name) + ' won ' + str(len(self.turn.spoils)) + ' cards!')
+                print("Turn " + str(turn_count) + self.turn.type() + ": " + str(winner.name) + ' won... ')
+                self.turn.pile_cards()
+                print(str(len(self.turn.spoils)) + ' cards!')
                 self.turn.award_spoils(winner)
+            turn_count += 1
 
 
     def grand_winner(self):
