@@ -19,7 +19,7 @@ for s in suits:
 deck = Deck(cards)
 random.shuffle(deck.cards)
 player1_deck = Deck(cards[0:26])
-player2_deck = Deck(cards[26:52])
+player2_deck = Deck(cards[26:-1])
 
 decision = input(
     'Welcome to War! (or Peace) This game will be played with 52 cards.\n'

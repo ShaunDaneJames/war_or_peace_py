@@ -44,14 +44,14 @@ class Turn:
     def pile_basic(self):
         self.spoils.append(self.player1.deck.remove_card())
         self.spoils.append(self.player2.deck.remove_card())
-        # return self.spoils
+        return self.spoils
 
     def pile_war(self):
-        for c in range(3):
+        for c in range(0, 3):
             self.spoils.append(self.player1.deck.remove_card())
-        for c in range(3):
+        for c in range(0, 3):
             self.spoils.append(self.player2.deck.remove_card())
-        # return self.spoils
+        return self.spoils
 
     def pile_mad(self):
         for c in range(3):
