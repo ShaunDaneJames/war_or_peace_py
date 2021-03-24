@@ -28,8 +28,6 @@ class Game:
                 print("Mutually assured destruction 6 cards removed from play")
             else:
                 print(self.turn.type() + ": " + str(winner.name) + ' won ' + str(len(self.turn.spoils)) + ' cards!')
-                # import pdb;
-                # pdb.set_trace()
                 self.turn.award_spoils(winner)
 
 
