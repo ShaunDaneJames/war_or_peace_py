@@ -7,4 +7,4 @@
 
 
 ## Future Goals:
-- Account for a MAD or War turn with player has less cards required
+- Account for a MAD or War turn when player has less cards than required
